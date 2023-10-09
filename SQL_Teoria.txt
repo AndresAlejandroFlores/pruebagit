@@ -1,0 +1,131 @@
+Una base de datos es un conjunto de datos almacenados que pertenecen a un mismo contexto y que pueden tener relaciones entre si o no.
+
+Un servidor de base de datos que permita la instalación de un SGBD (Sistema Gestor de Base de Datos) y una serie de herramientas.
+
+El SGBD es MySQL, como servidor de base de datos Wamp Server o Xampp Server
+
+Bases de datos informaticas y no informaticas.
+
+Una base de datos es un conjunto de datos pertenecientes a un mismo contexto y almacenados sistematicamente para su posterior uso. Pueden ser datos cuyo contenido o tematica difieren entre si, pero que poseen relaciones en comun.
+
+SGBD
+
+Relacionales: MySQL, Maria DB, PostgreSQL, Ms Access, SQL Server
+No Relacionales: Mongo DB
+
+Abstracción y Modelado
+
+La abstraccion de datos significa lograr una forma de representacion logica de las situaciones y objetos del mundo real.
+
+Un modelo de datos proporciona los medios necesarios para consegir una abstracción.
+
+Entidades y Atributos
+
+Las base de datos pueden ser representadas por un tipo de diagrama especial que se utiliza para ello el cual se llama DER (Diagrama Entidad Relacion).
+
+Modelo Entidad Relacion
+
+El tipo de diagrama utilizado para realizar el modelado entidad-relación es el DER, el cual pertenece al Lenguaje de Modelado Universal (UML).
+
+Entidades
+
+Representan cosas u objetos (reales o abstractos). Rectangulos
+
+Atributos
+
+Definen o identifican las caracteristicas propias y por lo general unicas de una entidad. Cada Entidad contiene distintos atributos. Pueden ser de distintos tipos. Elipse
+
+Relaciones: 1 a 1, 1 a N y N a N
+
+Cardinalidad, indica el sentido y la cantidad de relaciones existentes entre una unidad y otra.
+
+Las primary keys nos permiten identificar de forma unica a cada uno de los registros que tengamos almacenados en las tablas de nuestra base de datos. Las foreign keys nos permiten relacionar estas tablas entre si teniendo en cuenta un campo o valor en especial.
+
+Las claves primarias (Primary Keys) son valores que identifican de manera unica a cada fila o registro de una tabla.
+Una clave foranea (Foreign Key) es un campo de una tabla X que sirve para enlazar o relacionar entre si con otra tabla Y en la cual el campo de esta es una llave primaria (Primary Key). Para que un campo sea una clave foránea, este tiene que ser una llave primaria en otra tabla.
+
+SQL (Structured Query Lenguage)
+ABML (Alta, Baja, Modificación, Lectura)
+CRUD (Create, Read, Update, Delete)
+
+Lectura
+
+SELECT *
+FROM tabla
+WHERE fechanac > 1990-01-01
+
+Escritura
+INSERT INTO tabla (dni, apellido, nombre)
+VALUES (30920123, 'Diaz', 'Juan')
+
+Modificación
+
+UPDATE tabla
+SET nombre = 'Pedro'
+WHERE dni = 30920123
+
+Baja
+
+DELETE FROM tabla
+WHERE dni = 30920123
+
+ORDER BY: Es utilizada para especificar por qué criterio se pretende ordenar los registros de una tabla.
+SELECT * FROM empleado ORDER BY apellido ASC
+
+GROUP BY: Es utilizada para especificar por qué criterio se pretende agrupar a los registros de una tabla.
+SELECT cargo FROM empleado GROUP BY cargo
+
+SELECT COUNT(cod_prod) FROM productos
+SELECT MIN(precio) FROM productos
+SELECT MAX(precio) FROM productos
+SELECT AVG(precio) FROM productos
+SELECT SUM(stock) FROM productos
+SELECT SUM(stock) FROM productos WHERE marca = 'Xiaomi'
+
+INNER JOIN
+En la sentencia INNER JOIN sólo se muestran los registros que coinciden tanto de la tabla A como de la tabla B.
+
+Explicito
+SELECT *
+FROM empleado
+INNER JOIN departamento
+ON empleado.id_departamento = departamento.id_departamento
+Implícito
+SELECT *
+FROM empleado, departamento
+WHERE empleado.id_departamento = departamento.id_departamento
+
+
+LEFT JOIN: Muestra el conjunto completo de los registros de la tabla A, con los registros que coincidan de la tabla B (si es que los hay).
+SELECT *
+FROM empleado
+LEFT JOIN departamento
+ON empleado.id_departamento = departamento.id_departamento
+
+RIGHT JOIN: Es el “reflejo” del Left Join. Muestra el conjunto completo de los registros de la tabla B, con los registros que coincidan de la tabla A (si es que los hay).
+SELECT *
+FROM empleado
+RIGHT JOIN departamento
+ON empleado.id_departamento = departamento.id_departamento
+
+SUBCONSULTAS
+¿Qué son las subconsultas?
+Una subconsulta es una consulta SQL que se puede encontrar dentro de otra consulta SQL. Hasta 16 subconsultas. Se ejecutan de la ultima a la primera.
+
+Ejemplos:
+
+SELECT *
+FROM empleado
+WHERE sueldo_neto >=
+	(SELECT AVG(sueldo_neto)
+	FROM empleado)
+
+SELECT *
+FROM hinchas
+WHERE equipo_futbol IN
+	(SELECT nombre_equipo
+	FROM equipos_primera)
+
+
+https://www.peluchan.net/shout/650bbd213a87975c3e36a44d
+https://www.youtube.com/@kkunholdingsent/videos
